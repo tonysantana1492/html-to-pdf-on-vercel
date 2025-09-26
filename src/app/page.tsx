@@ -30,16 +30,21 @@ export default function HomePage() {
 
     try {
       const response = await fetch(
-        `/api/pdf?html=${encodeURIComponent(html)}`
+        `/api/pdf?html=${encodeURIComponent(html)}`,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
       );
       if (!response.ok) {
         throw new Error("Failed to create PDF.");
       }
       const blob = await response.blob();
       const objectUrl = URL.createObjectURL(blob);
-      const link = document.createElement('a');
+      const link = document.createElement("a");
       link.href = objectUrl;
-      link.download = 'output.pdf'; // Desired filename
+      link.download = "output.pdf"; // Desired filename
       document.body.appendChild(link); // Temporarily add to the DOM
       link.click(); // Programmatically click the link to trigger download
       document.body.removeChild(link); // Remove the link
@@ -60,8 +65,8 @@ export default function HomePage() {
           HTML to PDF on Vercel using Puppeteer
         </h1>
         <p className="text-lg text-gray-600 mb-8">
-          Enter the HTML below to generate a PDF using Puppeteer running in
-          a Vercel Function.
+          Enter the HTML below to generate a PDF using Puppeteer running in a
+          Vercel Function.
         </p>
         <div className="flex gap-2 flex-col">
           <textarea
