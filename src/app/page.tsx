@@ -8,8 +8,8 @@ const defaultHtml = `<p style="text-align:center">
   <b>
     This PDF was created using 
     <br />
-    <a href="https://github.com/ivanalemunioz/html-to-pdf-on-vercel">
-      https://github.com/ivanalemunioz/html-to-pdf-on-vercel
+    <a href="https://github.com/tonysantana1492/html-to-pdf-on-vercel">
+      https://github.com/tonysantana1492/html-to-pdf-on-vercel
     </a>
   </b>
 </p>`;
